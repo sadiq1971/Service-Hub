@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingTop="30dp"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="72dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp"
+                android:src="@drawable/service"/>
+
+            <!-- Email Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp">
+
+                <EditText
+                    android:id="@+id/input_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Password Label -->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp">
+
+                <EditText
+                    android:id="@+id/input_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:inputType="textPassword"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/ripple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pass"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#41ff8282"
+                    >
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/btn_sign_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:paddingLeft="65dp"
+                        android:paddingRight="65dp"
+                        android:text="Sign In"
+                        android:textAllCaps="false"
+                        android:textColor="@color/common_google_signin_btn_text_dark_default"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <ProgressBar
+                        android:id="@+id/progressBar_signUp"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/btn_sign_in"
+                        android:indeterminate="true"
+                        android:visibility="invisible"/>
+
+                </RelativeLayout>
+
+
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+            <TextView
+                android:id="@+id/forget_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Forget  password? Reset  here"
+                android:textAlignment="center"
+                android:layout_marginBottom="300dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="#3afa9696">
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#69ffffff"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/goto_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/linear"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Not registered? Sign Up"
+            android:textAlignment="center"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

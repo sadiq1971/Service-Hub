@@ -1,0 +1,211 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/relativeLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:id="@+id/materialTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="35dp"
+                android:accessibilityLiveRegion="assertive"
+                android:elevation="3dp"
+                app:mtf_cardCollapsedHeight="2dp"
+                app:mtf_image="@drawable/ic_person_light_blue_600_24dp"
+                >
+
+                <EditText
+                    android:id="@+id/nameField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Full Name"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp"/>
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:id="@+id/materialTextField2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/materialTextField"
+                android:layout_alignLeft="@+id/materialTextField"
+                android:layout_alignRight="@+id/materialTextField"
+                android:layout_alignStart="@+id/materialTextField"
+                android:layout_below="@+id/materialTextField"
+                android:layout_marginTop="25dp"
+                android:accessibilityLiveRegion="assertive"
+                android:elevation="3dp"
+                app:mtf_cardCollapsedHeight="2dp"
+                app:mtf_image="@drawable/ic_email_light_blue_600_24dp"
+                >
+
+                <EditText
+                    android:id="@+id/emailField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp"/>
+
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:id="@+id/materialTextField3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/materialTextField2"
+                android:layout_alignLeft="@+id/materialTextField2"
+                android:layout_alignRight="@+id/materialTextField2"
+                android:layout_alignStart="@+id/materialTextField2"
+                android:layout_below="@+id/materialTextField2"
+                android:layout_marginTop="25dp"
+                android:accessibilityLiveRegion="assertive"
+                android:elevation="3dp"
+                app:mtf_cardCollapsedHeight="2dp"
+                app:mtf_image="@drawable/ic_security_light_blue_600_24dp"
+                >
+
+                <EditText
+                    android:id="@+id/passwordField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password (at least 6 characters)"
+                    android:inputType="textPassword"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp"/>
+
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:id="@+id/materialTextField4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/materialTextField3"
+                android:layout_alignLeft="@+id/materialTextField3"
+                android:layout_alignRight="@+id/materialTextField3"
+                android:layout_alignStart="@+id/materialTextField3"
+                android:layout_below="@+id/materialTextField3"
+                android:layout_marginTop="25dp"
+                app:mtf_cardCollapsedHeight="2dp"
+                app:mtf_image="@drawable/ic_security_light_blue_600_24dp"
+                >
+
+                <EditText
+                    android:id="@+id/repeatPasswordField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Repeat Password"
+                    android:inputType="textPassword"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp"/>
+
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/ripple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/materialTextField4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="200dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="50dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="342dp"
+                    android:layout_height="50dp"
+                    android:background="#41ff8282"
+                    >
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/btn_sign_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:paddingLeft="65dp"
+                        android:paddingRight="65dp"
+                        android:text="Sign Up"
+                        android:textAllCaps="false"
+                        android:textColor="@color/common_google_signin_btn_text_dark_default"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <ProgressBar
+                        android:id="@+id/progressBar_signUp"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/btn_sign_in"
+                        android:indeterminate="true"
+                        android:visibility="invisible"/>
+
+                </RelativeLayout>
+
+
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="#3afa9696">
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#69ffffff"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/back_to_signIn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/linear"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Back to Sign In"
+            android:textAlignment="center"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>
