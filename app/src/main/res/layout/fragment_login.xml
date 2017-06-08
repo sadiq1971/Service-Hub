@@ -14,15 +14,24 @@
             android:orientation="vertical"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
-            android:paddingTop="30dp"
+            android:paddingTop="20dp"
             android:weightSum="1">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="72dp"
+                android:id="@+id/demo_img"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/service"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SERVICE-HUB"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                android:textStyle="italic" />
 
             <!-- Email Label -->
             <android.support.design.widget.TextInputLayout
@@ -62,8 +71,7 @@
                 android:layout_below="@+id/pass"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="15dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+
                 android:layout_marginTop="20dp"
                 >
 
@@ -79,8 +87,8 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:background="?android:attr/selectableItemBackground"
-                        android:paddingLeft="65dp"
-                        android:paddingRight="65dp"
+                        android:paddingLeft="40dp"
+                        android:paddingRight="40dp"
                         android:text="Sign In"
                         android:textAllCaps="false"
                         android:textColor="@color/common_google_signin_btn_text_dark_default"

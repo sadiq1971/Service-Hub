@@ -465,6 +465,9 @@ public class SearchBarFragment extends BaseExampleFragment {
         /*Query query=databaseReference.orderByChild("sl").
                 startAt("Electritian:Azimpur,Dhaka").endAt("Electritian:Azimpur,Dhaka:5.0:");*/
 
+        if(location.isEmpty()){
+            location="Azimpur,Dhaka";
+        }
         Query query=databaseReference.orderByChild("sl").startAt(skill+":"+location).
                 endAt(skill+":"+location+":5.0:");
 

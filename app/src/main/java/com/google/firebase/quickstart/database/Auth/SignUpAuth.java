@@ -81,6 +81,7 @@ public class SignUpAuth {
                                     Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(activity, MainActivity.class);
                             activity.startActivity(intent);
+                           activity.finish();
 
                        }
 
@@ -89,13 +90,13 @@ public class SignUpAuth {
     }
 
 
-    public void SignInWithFirebase(String email, String password, final ProgressDialog progressBar){
+    public void SignInWithFirebase(String email, String password, final ProgressBar progressBar){
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        progressBar.dismiss();
+                        progressBar.setVisibility(View.INVISIBLE);
 
                         if (!task.isSuccessful()) {
                             Toast.makeText(context, R.string.sign_in_error,
@@ -104,11 +105,12 @@ public class SignUpAuth {
                         }
                         else {
 
-                            Toast.makeText(context, R.string.sign_in_error,
+                            Toast.makeText(context, "Logged in",
                                     Toast.LENGTH_SHORT).show();
 
                             Intent intent=new Intent(activity, MainActivity.class);
                             activity.startActivity(intent);
+                            activity.finish();
                         }
 
 

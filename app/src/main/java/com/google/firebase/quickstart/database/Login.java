@@ -184,10 +184,9 @@ public class Login extends AppCompatActivity {
                     }
 
                     else {
-                        ProgressDialog progressBar_signIn = new ProgressDialog(lcontext, R.style.AppTheme_Dark_Dialog);
-                        progressBar_signIn.setIndeterminate(true);
-                        progressBar_signIn.setMessage("Authenticating");
-                        progressBar_signIn.show();
+                        //ProgressDialog progressBar_signIn = new ProgressDialog(lcontext, R.style.AppTheme_Dark_Dialog);
+                        final ProgressBar progressBar_signIn=(ProgressBar)view.findViewById(R.id.progressBar_signUp);
+                        progressBar_signIn.setVisibility(View.VISIBLE);
 
                         SignUpAuth auth = new SignUpAuth(lcontext, lActivity);
                         auth.SignInWithFirebase(semail, spassword, progressBar_signIn);

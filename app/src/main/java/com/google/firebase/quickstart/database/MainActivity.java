@@ -58,14 +58,14 @@ public class  MainActivity extends BaseActivity {
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[] {
-                    new RecentPostsFragment(),
-                    new SearchListFragment(),
-                    new SearchBarFragment()
+                    new SearchBarFragment(),
+                    new SearchListFragment()
+
             };
             private final String[] mFragmentNames = new String[] {
-                    getString(R.string.heading_recent),
-                    "Search",
-                    "Search Bar"
+                    "Get service",
+                    "Search"
+
             };
             @Override
             public Fragment getItem(int position) {
@@ -106,7 +106,7 @@ public class  MainActivity extends BaseActivity {
         int i = item.getItemId();
         if (i == R.id.action_logout) {
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, SignInActivity.class));
+            startActivity(new Intent(this, Login.class));
             finish();
             return true;
         } else {
