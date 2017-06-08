@@ -3,7 +3,9 @@ package com.google.firebase.quickstart.database.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.transition.Visibility;
 import android.support.v4.content.res.ResourcesCompat;
 
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,11 +39,13 @@ import com.google.firebase.quickstart.database.data.DataHelper;
 import com.google.firebase.quickstart.database.data.LocationSuggetion;
 import com.google.firebase.quickstart.database.models.Profile;
 import com.google.firebase.quickstart.database.viewholder.SearchViewHolder;
+import com.wang.avi.AVLoadingIndicatorView;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 
 import java.util.List;
+
 import static android.R.layout.simple_spinner_item;
 
 
@@ -67,7 +72,8 @@ public class SearchBarFragment extends BaseExampleFragment {
     Spinner serviceList;
     String location;
     String skill;
-    private ExpandableLayout resulSection;
+    private RelativeLayout resulSection;
+    AVLoadingIndicatorView loader;
     private TextView searchLog;
     public static  int count=0;
 
@@ -101,12 +107,15 @@ public class SearchBarFragment extends BaseExampleFragment {
         go=(ImageButton)view.findViewById(R.id.search_btn);
         addLocation=(ImageButton)view.findViewById(R.id.location_btn) ;
 
+        loader=(AVLoadingIndicatorView)view.findViewById(R.id.loader);
+        loader.hide();
 
         searchLayout = (ExpandableLayout)view.findViewById(R.id.expandableLayout);
         searchLayout.collapse(true);
 
-        resulSection=(ExpandableLayout)view.findViewById(R.id.result_section);
+        resulSection=(RelativeLayout) view.findViewById(R.id.result_section);
         searchLog=(TextView)view.findViewById(R.id.search_log);
+        searchLog.setText("Showing Result for Your Search");
 
 
         selectService(view);
@@ -119,11 +128,34 @@ public class SearchBarFragment extends BaseExampleFragment {
             @Override
             public void onClick(View v) {
                 skill=serviceList.getSelectedItem().toString();
-                searchLayout.collapse(true);
-                resulSection.expand(true);
-                ShowResult();
+                if(resulSection.getVisibility()== View.GONE) {
+                    resulSection.setVisibility(View.VISIBLE);
+                    loader.show();
+                    if(searchLayout.isExpanded()) {
+                        searchLayout.collapse(true);
+
+                    }
+
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            ShowResult();
+                        }
+                    }, 2000);
 
 
+
+
+                }
+
+                else {
+
+                    mRecycler.setAdapter(null);
+                    resulSection.setVisibility(View.GONE);
+
+                    //searchLayout.collapse(true);
+                }
 
 
             }
@@ -137,18 +169,13 @@ public class SearchBarFragment extends BaseExampleFragment {
         addLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isLocationPressed){
-                    //hide
-                   // mSearchView.setVisibility(View.GONE);
+                if(searchLayout.isExpanded()){
                     searchLayout.collapse(true);
-                    isLocationPressed=false;
                 }
                 else {
-                    //expand
-                   // mSearchView.setVisibility(View.VISIBLE);
                     searchLayout.expand(true);
-                    isLocationPressed=true;
-
+                    mRecycler.setAdapter(null);
+                    resulSection.setVisibility(View.GONE);
                 }
             }
         });
@@ -410,7 +437,6 @@ public class SearchBarFragment extends BaseExampleFragment {
     public final void ShowResult()
     {
 
-
         count=0;
         mManager = new LinearLayoutManager(getActivity());
         mManager.setReverseLayout(true);
@@ -449,12 +475,17 @@ public class SearchBarFragment extends BaseExampleFragment {
 
 
                 postViewHolder.bindToSearch(post);
+                loader.hide();
             }
+
         };
+
+
         mRecycler.setAdapter(mAdapter);
 
-        String log=String.valueOf(count);
-        searchLog.setText("Showing Result for Your Search");
+
+
+        //searchLog.setText("Showing Result for Your Search");
 
 
     }
@@ -465,7 +496,7 @@ public class SearchBarFragment extends BaseExampleFragment {
         /*Query query=databaseReference.orderByChild("sl").
                 startAt("Electritian:Azimpur,Dhaka").endAt("Electritian:Azimpur,Dhaka:5.0:");*/
 
-        if(location.isEmpty()){
+        if(location==null){
             location="Azimpur,Dhaka";
         }
         Query query=databaseReference.orderByChild("sl").startAt(skill+":"+location).

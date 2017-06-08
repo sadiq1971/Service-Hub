@@ -28,3 +28,6 @@
 -keepclassmembers class com.google.firebase.quickstart.database.models.** {
     *;
 }
+
+-keep class com.wang.avi.** { *; }
+-keep class com.wang.avi.indicators.** { *; }

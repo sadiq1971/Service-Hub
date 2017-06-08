@@ -8,6 +8,8 @@
     android:background="#d9d9d9"
     tools:context=".MainActivity">
 
+
+
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,7 +17,8 @@
         android:id="@+id/parent_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        >
 
         <RelativeLayout
             android:id="@+id/sec1"
@@ -107,16 +110,13 @@
         </net.cachapa.expandablelayout.ExpandableLayout>
 
 
-
-
-        <net.cachapa.expandablelayout.ExpandableLayout
+        <RelativeLayout
             android:id="@+id/result_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/expandableLayout"
-            app:el_duration="1000"
-            app:el_expanded="false"
-            app:el_parallax="0.5">
+            android:visibility="gone">
+
 
 
             <TextView
@@ -145,9 +145,22 @@
                 tools:listitem="@layout/search_item"/>
 
 
-        </net.cachapa.expandablelayout.ExpandableLayout>
+
+        </RelativeLayout>
 
 
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/loader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/AVLoadingIndicatorView"
+            android:visibility="visible"
+            app:indicatorName="BallPulseIndicator"
+            app:indicatorColor="@color/color7"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+        />
 
     </RelativeLayout>
 
