@@ -24,14 +24,13 @@ public class Profile {
 
     }
 
-    public Profile(String name,String email,String location,float rating,String skill){
+    public Profile(String name,String location,float rating,String skill){
         //this.uid=uid;
         this.name=name;
-        this.email=email;
         this.location=location;
         this.rating=rating;
         this.skill=skill;
-        this.sl=skill+":"+location;
+        this.sl=skill+":"+location+":"+rating+":";
 
     }
 

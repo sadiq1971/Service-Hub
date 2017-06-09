@@ -5,19 +5,20 @@ package com.google.firebase.quickstart.database.models;
  */
 
 public class Activity {
-    public String pName;
     public String pUID;
-    public String pRating;
-    public String pBody;
-    public String uName;
-    public String uUID;
+    public String body;
+    public String rpUID;
+    public String date;
 
-    public Activity(String pName,String uName,String pRating,String pBody){
-        this.pName=pName;
-        this.uName=uName;
-        this.pRating=pRating;
-        this.pBody=pBody;
+    public Activity(){
 
+    }
+
+    public Activity(String pUID,String rpUID,String date,String body){
+        this.pUID=pUID;
+        this.rpUID=rpUID;
+        this.date=date;
+        this.body=body;
     }
 
 }

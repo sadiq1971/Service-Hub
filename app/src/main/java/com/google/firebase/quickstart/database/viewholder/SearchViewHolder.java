@@ -47,8 +47,9 @@ public class SearchViewHolder extends RecyclerView.ViewHolder {
         nameField.setText(profile.name);
         skillField.setText("("+profile.skill+")");
         locationField.setText(profile.location);
-        ratingField.setRating(profile.rating);
-        ratingTextField.setText(String.valueOf(profile.rating));
+        float rating=profile.rating;
+        ratingField.setRating(rating);
+        ratingTextField.setText(String.valueOf(String.format("%.2f", rating)));
 
         SearchBarFragment.count++;
     }

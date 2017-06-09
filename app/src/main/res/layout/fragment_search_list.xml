@@ -13,6 +13,6 @@
         android:layout_alignParentTop="true"
         android:clipToPadding="false"
         android:scrollbars="vertical"
-        tools:listitem="@layout/search_item" />
+        tools:listitem="@layout/item_activity" />
 
 </FrameLayout>

@@ -115,7 +115,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/expandableLayout"
-            android:visibility="gone">
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/spinner_background"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginTop="10dp"
+                >
+
+
+                <ImageView
+                    android:id="@+id/cancel"
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel" />
 
 
 
@@ -123,13 +141,14 @@
                 android:id="@+id/search_log"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/spinner_background"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
-                android:textColor="@color/color1"/>
+                android:textColor="@color/color1"
+                android:textSize="12sp"
+                android:layout_toLeftOf="@+id/cancel"
+                android:layout_marginLeft="20dp"/>
+
+            </RelativeLayout>
 
 
             <android.support.v7.widget.RecyclerView
@@ -156,10 +175,10 @@
             android:layout_height="wrap_content"
             style="@style/AVLoadingIndicatorView"
             android:visibility="visible"
-            app:indicatorName="BallPulseIndicator"
+            app:indicatorName="BallClipRotateIndicator"
             app:indicatorColor="@color/color7"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="180dp"
         />
 
     </RelativeLayout>

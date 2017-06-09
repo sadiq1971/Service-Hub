@@ -23,8 +23,10 @@ import com.google.firebase.database.Transaction;
 import com.google.firebase.quickstart.database.MainActivity;
 import com.google.firebase.quickstart.database.PostDetailActivity;
 import com.google.firebase.quickstart.database.R;
+import com.google.firebase.quickstart.database.models.Activity;
 import com.google.firebase.quickstart.database.models.Post;
 import com.google.firebase.quickstart.database.models.Profile;
+import com.google.firebase.quickstart.database.viewholder.ActivityViewHolder;
 import com.google.firebase.quickstart.database.viewholder.PostViewHolder;
 import com.google.firebase.quickstart.database.viewholder.SearchViewHolder;
 
@@ -41,7 +43,7 @@ public class SearchListFragment extends android.support.v4.app.Fragment{
     private DatabaseReference mDatabase;
     // [END define_database_reference]
 
-    private FirebaseRecyclerAdapter<Profile, SearchViewHolder> mAdapter;
+    private FirebaseRecyclerAdapter<Activity, ActivityViewHolder> mAdapter;
     private RecyclerView mRecycler;
     private LinearLayoutManager mManager;
 
@@ -54,7 +56,7 @@ public class SearchListFragment extends android.support.v4.app.Fragment{
         View rootView = inflater.inflate(R.layout.fragment_search_list, container, false);
 
         // [START create_database_reference]
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Profile");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         // [END create_database_reference]
 
         mRecycler = (RecyclerView) rootView.findViewById(R.id.search_list);
@@ -75,14 +77,12 @@ public class SearchListFragment extends android.support.v4.app.Fragment{
 
         // Set up FirebaseRecyclerAdapter with the Query
         Query postsQuery = getQuery(mDatabase);
-        if (postsQuery==null){
-            Toast.makeText(MainActivity.mainContext,"null",Toast.LENGTH_SHORT).show();
-        }
-        mAdapter = new FirebaseRecyclerAdapter<Profile, SearchViewHolder>(Profile.class, R.layout.search_item,
-                SearchViewHolder.class, postsQuery) {
+
+        mAdapter = new FirebaseRecyclerAdapter<Activity, ActivityViewHolder>(Activity.class, R.layout.item_activity,
+                ActivityViewHolder.class, postsQuery) {
 
             @Override
-            protected void populateViewHolder(SearchViewHolder postViewHolder, Profile post, int i) {
+            protected void populateViewHolder(ActivityViewHolder activityViewHolder, Activity activity, int i) {
 
                 //final DatabaseReference postRef = getRef(i);
 
@@ -103,12 +103,13 @@ public class SearchListFragment extends android.support.v4.app.Fragment{
                 // Bind Post to ViewHolder, setting OnClickListener for the star button
 
 
-                postViewHolder.bindToSearch(post);
+                activityViewHolder.bindToActivity(activity);
             }
         };
         mRecycler.setAdapter(mAdapter);
     }
 
+    /*
     // [START post_stars_transaction]
     private void onStarClicked(DatabaseReference postRef) {
         postRef.runTransaction(new Transaction.Handler() {
@@ -144,6 +145,7 @@ public class SearchListFragment extends android.support.v4.app.Fragment{
         });
     }
     // [END post_stars_transaction]
+    */
 
     @Override
     public void onDestroy() {
@@ -161,8 +163,7 @@ public class SearchListFragment extends android.support.v4.app.Fragment{
 
 
 
-        Query query=databaseReference.orderByChild("sl").
-                startAt("Electritian:Azimpur,Dhaka").endAt("Electritian:Azimpur,Dhaka:5.0:");
+        Query query=databaseReference.child("Activity");
 
         return query;
     }

@@ -7,10 +7,6 @@ So far----
 - [Auto Suggested search Bar and implemented]
 - [Get service Provider list from firebase real time database]
 
-Result
------------
-<img src="app/src/screen.png" height="534" width="300"/>
-
 
 Data Model
 -----------
@@ -24,18 +20,18 @@ The database has two "root" nodes:
 
   Libaray used:
   
-  1.android.support:recyclerview
-  2.android.support:cardview
-  3.android.support:design
-  4.firebaseui:firebase-ui-database
-  5.google.firebase:firebase-auth
-  6.google.firebase:firebase-auth
-  7.github.florent37:materialtextfield
-  8.balysv:material-ripple
-  9.github.rey5137:material
-  10.jakewharton:butterknife
-  11.com.weiwangcn.betterspinner:library-material
-  12..cachapa.expandablelayout:expandablelayout
+  *android.support:recyclerview
+  *android.support:cardview
+  *android.support:design
+  *firebaseui:firebase-ui-database
+  *google.firebase:firebase-auth
+  *google.firebase:firebase-auth
+  *github.florent37:materialtextfield
+  *balysv:material-ripple
+  *github.rey5137:material
+  *jakewharton:butterknife
+  *com.weiwangcn.betterspinner:library-material
+  *cachapa.expandablelayout:expandablelayout
   
   
   

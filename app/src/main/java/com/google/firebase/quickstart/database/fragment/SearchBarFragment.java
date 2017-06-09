@@ -57,6 +57,7 @@ public class SearchBarFragment extends BaseExampleFragment {
     private FloatingSearchView mSearchView;
     private RecyclerView mSearchResultsList;
     private boolean mIsDarkSearchTheme = false;
+    boolean isCalled=false;
 
     private String mLastQuery = "";
 
@@ -76,6 +77,7 @@ public class SearchBarFragment extends BaseExampleFragment {
     AVLoadingIndicatorView loader;
     private TextView searchLog;
     public static  int count=0;
+    private ImageView cancelBtn;
 
     public SearchBarFragment() {
         // Required empty public constructor
@@ -108,14 +110,15 @@ public class SearchBarFragment extends BaseExampleFragment {
         addLocation=(ImageButton)view.findViewById(R.id.location_btn) ;
 
         loader=(AVLoadingIndicatorView)view.findViewById(R.id.loader);
-        loader.hide();
+        //loader.hide();
+        //loader.show();
 
         searchLayout = (ExpandableLayout)view.findViewById(R.id.expandableLayout);
         searchLayout.collapse(true);
 
         resulSection=(RelativeLayout) view.findViewById(R.id.result_section);
         searchLog=(TextView)view.findViewById(R.id.search_log);
-        searchLog.setText("Showing Result for Your Search");
+        cancelBtn=(ImageView)view.findViewById(R.id.cancel);
 
 
         selectService(view);
@@ -123,43 +126,70 @@ public class SearchBarFragment extends BaseExampleFragment {
         setupFloatingSearch();
         setupDrawer();
 
+        if(isCalled==false){
+            InitializeRecom();
+        }
+
+
 
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 skill=serviceList.getSelectedItem().toString();
-                if(resulSection.getVisibility()== View.GONE) {
+
                     resulSection.setVisibility(View.VISIBLE);
-                    loader.show();
+
+
                     if(searchLayout.isExpanded()) {
                         searchLayout.collapse(true);
 
                     }
 
+                    loader.show();
+                    searchLog.setText("Loading");
+
                     final Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            ShowResult();
+                            ShowResult(getQuery(mDatabase));
+                            searchLog.setText("Result for Your search");
+                        }
+                    }, 2000);
+            }
+        });
+
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mRecycler.setAdapter(null);
+                //resulSection.setVisibility(View.GONE);
+                searchLog.setText("Loading");
+
+                loader.show();
+
+
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            ShowResult(getQueryForRecom(mDatabase));
+                            searchLog.setText("Showing Recommended Service Provider");
                         }
                     }, 2000);
 
 
 
 
-                }
-
-                else {
-
-                    mRecycler.setAdapter(null);
-                    resulSection.setVisibility(View.GONE);
-
                     //searchLayout.collapse(true);
                 }
-
-
-            }
         });
+
+
+
+
 
 
     }
@@ -169,13 +199,16 @@ public class SearchBarFragment extends BaseExampleFragment {
         addLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                resulSection.setVisibility(View.GONE);
+
                 if(searchLayout.isExpanded()){
                     searchLayout.collapse(true);
+                    mRecycler.setAdapter(null);
                 }
                 else {
                     searchLayout.expand(true);
                     mRecycler.setAdapter(null);
-                    resulSection.setVisibility(View.GONE);
+                    //resulSection.setVisibility(View.GONE);
                 }
             }
         });
@@ -420,7 +453,7 @@ public class SearchBarFragment extends BaseExampleFragment {
     private void selectService(View view)
     {
          final String[] COUNTRIES = new String[] {
-                "--What are u looking for?","Electritian", "Mechanic", "Household Worker", "EXTRA", "EXTRA"
+                "--What are u looking for?","Electritian", "Mechanic", "Household Worker", "Sanitary Worker", "Carpenter","Internet Service Provider"
         };
 
         ArrayAdapter<CharSequence> langAdapter = new ArrayAdapter<CharSequence>(getActivity(), android.R.layout.simple_spinner_dropdown_item, COUNTRIES );
@@ -434,7 +467,7 @@ public class SearchBarFragment extends BaseExampleFragment {
     }
 
 
-    public final void ShowResult()
+    public final void ShowResult(Query query)
     {
 
         count=0;
@@ -475,13 +508,14 @@ public class SearchBarFragment extends BaseExampleFragment {
 
 
                 postViewHolder.bindToSearch(post);
-                loader.hide();
+
             }
 
         };
 
 
         mRecycler.setAdapter(mAdapter);
+        loader.hide();
 
 
 
@@ -507,6 +541,38 @@ public class SearchBarFragment extends BaseExampleFragment {
         return query;
     }
 
+    public  Query getQueryForRecom(DatabaseReference databaseReference){
+
+        /*Query query=databaseReference.orderByChild("sl").
+                startAt("Electritian:Azimpur,Dhaka").endAt("Electritian:Azimpur,Dhaka:5.0:");*/
+
+        if(location==null){
+            location="Azimpur,Dhaka";
+        }
+
+        Query query=databaseReference.child("location").startAt(location).endAt(location);
+
+        return query;
+    }
+
+
+    void InitializeRecom(){
+
+
+        loader.show();
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ShowResult(getQueryForRecom(mDatabase));
+                searchLog.setText("Showing Recommended Service Provider");
+                isCalled=true;
+            }
+        }, 2000);
+
+
+
+    }
 
 
 }

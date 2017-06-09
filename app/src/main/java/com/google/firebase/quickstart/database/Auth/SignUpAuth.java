@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.quickstart.database.MainActivity;
+import com.google.firebase.quickstart.database.NewPostActivity;
 import com.google.firebase.quickstart.database.R;
 
 

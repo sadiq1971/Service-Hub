@@ -58,12 +58,12 @@ public class  MainActivity extends BaseActivity {
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[] {
-                    new SearchBarFragment(),
-                    new SearchListFragment()
+                    new SearchListFragment(),
+                    new SearchBarFragment()
 
             };
             private final String[] mFragmentNames = new String[] {
-                    "Get service",
+                    "Home",
                     "Search"
 
             };

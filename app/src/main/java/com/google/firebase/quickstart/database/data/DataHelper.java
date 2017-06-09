@@ -44,10 +44,10 @@ public class DataHelper {
                     new LocationSuggetion("Jamalpur Town,Jamalpur"),
                     new LocationSuggetion("Banani,Dhaka"),
                     new LocationSuggetion("Kakrail,Dhaka"),
-                    new LocationSuggetion("Mogbajar Space"),
+                    new LocationSuggetion("Mogbajar,Dhaka"),
                     new LocationSuggetion("Uttara,Dhaka"),
                     new LocationSuggetion("Beily Road,Dhaka"),
-                    new LocationSuggetion("Mohakhali,Dhala")));
+                    new LocationSuggetion("Mohakhali,Dhaka")));
 
    /* public interface OnFindColorsListener {
         void onResults(List<ColorWrapper> results);

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/spinner_background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:id="@+id/reviewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/reviewtext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ashiqur Rahman was reviewed 5 star"
+                android:textSize="12dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/sep0"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/reviewLayout"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:background="#dfd0d0"></RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sep0">
+
+
+            <ImageView
+                android:id="@+id/pdp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/dp" />
+
+            <TextView
+                android:id="@+id/uName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/pdp"
+                android:text="Sadiqur Rahman"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/uName"
+                android:layout_below="@+id/uName"
+                android:text="May 18,2016" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/sep1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/intro"
+            android:layout_marginRight="20dp"
+            android:background="#dfd0d0">
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sep1"
+            android:layout_marginTop="20dp"
+            android:background="#e7f6f9"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="matrix" />
+
+            <ImageView
+                android:id="@+id/q1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/img"
+                android:src="@drawable/quat" />
+
+            <TextView
+                android:id="@+id/body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/q1"
+                android:layout_toLeftOf="@+id/q2"
+                android:layout_toRightOf="@+id/q1"
+                android:text="He is an excellent man i have ever seen.Really deserves 5 star. He has also vey good personality" />
+
+            <ImageView
+                android:id="@+id/q2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/body"
+                android:src="@drawable/quat1" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/middle"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/recycler_background">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/dp"
+                android:layout_toRightOf="@+id/dp">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="3dp"
+                    android:text="Ashiqur Rahman"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/skill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/name"
+                    android:layout_marginLeft="10dp"
+                    android:text="(Software Developer)"
+                    android:textSize="13sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/skill"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Dhanmondi 15,Dhaka"
+                    android:textSize="13sp" />
+
+                <RatingBar
+                    android:id="@+id/rating"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/location"
+                    android:layout_marginLeft="10dp"
+                    android:clickable="false"
+                    android:rating="4.5" />
+
+                <TextView
+                    android:id="@+id/rating_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/location"
+                    android:layout_marginLeft="2dp"
+                    android:layout_toRightOf="@id/rating"
+                    android:text="(4.5)"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_alignParentTop="true"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/demo_worker" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
