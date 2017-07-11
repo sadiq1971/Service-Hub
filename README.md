@@ -10,7 +10,7 @@
 
 ------
 # Authentication Page (Instragram Effect) #
- ![Alt text](pic/s1.png?raw=true "")  ![Alt text](pic/s1.png?raw=true "")  ![Alt text](pic/s1.png?raw=true "")
+ ![Alt text](pic/s1.png?raw=true "")![Alt text](pic/s2.png?raw=true "")![Alt text](pic/s2.png?raw=true "")
 
 
 ------
@@ -37,8 +37,7 @@ We used [Firebase](https://firebase.google.com/) Database.
 
 
 
-  Libaray used:
-  
+  # Libaray used: #  
   * android.support:recyclerview
   * android.support:cardview
   * android.support:design
