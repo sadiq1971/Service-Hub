@@ -10,17 +10,17 @@
 
 ------
 # Authentication Page (Instragram Effect) #
- ![Alt text](pic\s1.png?raw=true "")  ![Alt text](pic\s1.png?raw=true "")  ![Alt text](pic\s1.png?raw=true "")
+ ![Alt text](pic/s1.png?raw=true "")  ![Alt text](pic/s1.png?raw=true "")  ![Alt text](pic/s1.png?raw=true "")
 
 
 ------
 # Search Service #
- ![Alt text](pic\s5.png?raw=true "")
- ![Alt text](pic\s6.png?raw=true "")
+ ![Alt text](pic/s5.png?raw=true "")
+ ![Alt text](pic/s6.png?raw=true "")
 
 
 # Random Advertisement #
- ![Alt text](pic\s4.png?raw=true "")
+ ![Alt text](pic/s4.png?raw=true "")
 
 
 
@@ -29,10 +29,10 @@ We used [Firebase](https://firebase.google.com/) Database.
 --------
 
 ## The database has 3 nodes ##
- ![Alt text](pic\c1.png?raw=true "")
+ ![Alt text](pic/c1.png?raw=true "")
 --------
- ![Alt text](pic\c2.png?raw=true "")
- ![Alt text](pic\c3.png?raw=true "")
+ ![Alt text](pic/c2.png?raw=true "")
+ ![Alt text](pic/c3.png?raw=true "")
 
 
 
